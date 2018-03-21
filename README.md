@@ -1,6 +1,6 @@
-# Boilerplate Meteor Project
+# Notes Application
 
-This includes a basic React and Auth setup.
+Advanced Meteor/React Notes Web application.
 
 ### Installation (Commands)
 
