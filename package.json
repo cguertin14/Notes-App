@@ -1,0 +1,24 @@
+{
+  "name": "Notes App",
+  "private": true,
+  "scripts": {
+    "start": "meteor run"
+  },
+  "dependencies": {
+    "@babel/runtime": "^7.0.0-beta.36",
+    "@version/react-router-v3": "^1.0.0",
+    "bcrypt": "^1.0.3",
+    "meteor-node-stubs": "^0.3.2",
+    "moment": "^2.21.0",
+    "proptypes": "^1.1.0",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "react-router": "^4.2.0",
+    "react-router-dom": "^4.2.2",
+    "react-router-redux": "^4.0.8",
+    "simpl-schema": "^1.4.2"
+  },
+  "engines": {
+    "node": "8.9.4"
+  }
+}
