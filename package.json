@@ -2,16 +2,19 @@
   "name": "Notes-App",
   "private": true,
   "scripts": {
-    "start": "meteor run"
+    "start": "meteor run",
+    "test": "TEST_WATCH=1 meteor test --driver-package meteortesting:mocha"
   },
   "dependencies": {
-    "@babel/runtime": "^7.0.0-beta.36",
+    "@babel/runtime": "^7.0.0-beta.42",
     "@version/react-router-v3": "^1.0.0",
     "bcrypt": "^1.0.3",
-    "meteor-node-stubs": "^0.3.2",
+    "expect": "^1.20.2",
+    "meteor-node-stubs": "^0.3.3",
     "moment": "^2.21.0",
     "proptypes": "^1.1.0",
     "react": "^16.2.0",
+    "react-addons-pure-render-mixin": "^15.6.2",
     "react-dom": "^16.2.0",
     "react-router": "^4.2.0",
     "react-router-dom": "^4.2.2",
@@ -20,5 +23,12 @@
   },
   "engines": {
     "node": "8.9.4"
+  },
+  "devDependencies": {
+    "chromedriver": "^2.37.0",
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1",
+    "mocha-css": "^1.0.1",
+    "selenium-webdriver": "^4.0.0-alpha.1"
   }
 }
