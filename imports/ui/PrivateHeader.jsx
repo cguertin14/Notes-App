@@ -23,4 +23,4 @@ export default withTracker(() => {
     return {
         handleLogout: () => Accounts.logout()
     };
-}, PrivateHeader);
+})(PrivateHeader);

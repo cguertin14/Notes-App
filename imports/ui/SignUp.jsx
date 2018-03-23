@@ -1,8 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Accounts } from 'meteor/accounts-base';
+import { withTracker } from 'meteor/react-meteor-data';
+import PropTypes from 'proptypes';
 
-export default class SignUp extends React.Component {
+export class SignUp extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -21,7 +23,7 @@ export default class SignUp extends React.Component {
             });
         }
 
-        Accounts.createUser({ email, password }, (err) => {
+        this.props.createUser({ email, password }, (err) => {
             if (err) {
                 this.setState({ error: err.reason });
             } else {
@@ -49,3 +51,14 @@ export default class SignUp extends React.Component {
         );
     }
 }
+
+SignUp.propTypes = {
+    createUser: PropTypes.func.isRequired
+};
+
+
+export default withTracker(() => {
+    return {
+        createUser: Accounts.createUser
+    };
+})(SignUp);
