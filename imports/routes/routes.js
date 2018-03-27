@@ -34,6 +34,7 @@ export const routes = (
             <Route exact path="/" render={() => onEnterPublicPage(<Login/>)} />
             <Route path="/signup" render={() => onEnterPublicPage(<SignUp/>)} />
             <Route path="/dashboard" render={() => onEnterPrivatePage(<Dashboard/>)} />
+            <Route path="/dashboard/:id" render={() => onEnterPrivatePage(<Dashboard/>)} />
             <Route path="*" component={NotFound} />
         </Switch>
     </Router>

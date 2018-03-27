@@ -1,11 +1,15 @@
 import React from 'react';
 import moment from 'moment';
 import PropTypes from 'proptypes';
+import { Session } from 'meteor/session';
+import { withTracker } from 'meteor/react-meteor-data'
 
 
-export default NoteListItem = (props) => {
+export const NoteListItem = (props) => {
     return (
-        <div>
+        <div onClick={() => {
+            props.Session.set('selectedNoteId',props.note._id)}
+        }>
             <h5>{props.note.title || 'Untitled note'}</h5>
             <p>{moment(props.note.updatedAt).format('Y-MM-DD')}</p>
         </div>
@@ -13,5 +17,10 @@ export default NoteListItem = (props) => {
 };
 
 NoteListItem.propTypes = {
-    note: PropTypes.object.isRequired
+    note: PropTypes.object.isRequired,
+    Session: PropTypes.object.isRequired
 };
+
+export default withTracker(() => {
+    return { Session };
+})(NoteListItem);
