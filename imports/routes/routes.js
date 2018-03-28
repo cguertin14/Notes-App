@@ -1,6 +1,7 @@
 import { Meteor } from 'meteor/meteor';
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Session } from 'meteor/session';
 import { Router, Route, Switch, Redirect } from 'react-router';
 import { createBrowserHistory } from 'history';
 
@@ -14,6 +15,14 @@ const unauthenticatedPages = ['/','/signup'];
 const authenticatedPages = ['/dashboard'];
 const onEnterPublicPage = (component) => Meteor.userId() ? <Redirect to="/dashboard"/> : component
 const onEnterPrivatePage = (component) => !Meteor.userId() ? <Redirect to="/"/> : component;
+const onEnterNotePage = (component, nextState) => {
+    if (!Meteor.userId()) {
+        return <Redirect to="/"/>;
+    } else {
+        Session.set('selectedNoteId', nextState.params.id)
+        return component;
+    }
+};
 
 export const onAuthChange = (isAuthenticated) => {
     const pathname = browserHistory.location.pathname;
@@ -33,8 +42,8 @@ export const routes = (
         <Switch>
             <Route exact path="/" render={() => onEnterPublicPage(<Login/>)} />
             <Route path="/signup" render={() => onEnterPublicPage(<SignUp/>)} />
-            <Route path="/dashboard" render={() => onEnterPrivatePage(<Dashboard/>)} />
-            <Route path="/dashboard/:id" render={() => onEnterPrivatePage(<Dashboard/>)} />
+            <Route exact path="/dashboard" render={() => onEnterPrivatePage(<Dashboard/>)} />
+            <Route path="/dashboard/:id" render={(nextState) => onEnterNotePage(<Dashboard/>, nextState.match)} />
             <Route path="*" component={NotFound} />
         </Switch>
     </Router>
