@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'proptypes';
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router';
 import { Meteor } from 'meteor/meteor';
 import { withTracker } from 'meteor/react-meteor-data';
 
