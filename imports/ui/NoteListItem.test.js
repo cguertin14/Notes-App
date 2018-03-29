@@ -4,7 +4,7 @@ import expect from 'expect';
 import { mount } from 'enzyme';
 
 import { NoteListItem } from './NoteListItem';
-import {notes} from '../fixtures/fixture';
+import {notes} from './../fixtures/fixture';
 
 if (Meteor.isClient) {
     describe('NoteListItem', function() {

@@ -15,7 +15,7 @@ if (Meteor.isClient) {
 
         it('should show error messages', function () {
             const error = 'This is not working';
-            const wrapper = shallow(<Login loginWithPassword={() => { }} />);
+            const wrapper = mount(<Login loginWithPassword={() => { }} />);
 
             wrapper.setState({ error });            
             expect(wrapper.find('p').text()).toBe(error);
@@ -25,11 +25,10 @@ if (Meteor.isClient) {
         });
 
         it('should call loginWithPassword with the form data', function() {
-            const options  = new ReactContextOptions(),
-                  email    = 'a@a.a',
+            const email    = 'a@a.a',
                   password = 'password123',
                   spy      = expect.createSpy(),
-                  wrapper  = mount(<Login loginWithPassword={spy}/>,options.get());
+                  wrapper  = mount(<Login loginWithPassword={spy}/>);
 
             wrapper.find('input').first().getDOMNode().value = email;
             wrapper.find('input').last().getDOMNode().value = password;
@@ -44,7 +43,7 @@ if (Meteor.isClient) {
                   email    = 'a@a.a',
                   password = 'password123',
                   spy      = expect.createSpy(),
-                  wrapper  = mount(<Login loginWithPassword={spy}/>,options.get());
+                  wrapper  = mount(<Login loginWithPassword={spy}/>);
 
             wrapper.find('form').simulate('submit');
             spy.calls[0].arguments[2]({});

@@ -25,11 +25,10 @@ if (Meteor.isClient) {
         });
 
         it('should call createUser with the form data', function() {
-            const options  = new ReactContextOptions(),
-                  email    = 'a@a.a',
+            const email    = 'a@a.a',
                   password = 'password123456',
                   spy      = expect.createSpy(),
-                  wrapper  = mount(<SignUp createUser={spy}/>,options.get());
+                  wrapper  = mount(<SignUp createUser={spy}/>);
 
             wrapper.find('input').first().getDOMNode().value = email;
             wrapper.find('input').last().getDOMNode().value = password;
@@ -39,11 +38,10 @@ if (Meteor.isClient) {
         });
 
         it('should set error if short password', function() {
-            const options  = new ReactContextOptions(),
-                  email    = 'a@a.a',
+            const email    = 'a@a.a',
                   password = '456              ',
                   spy      = expect.createSpy(),
-                  wrapper  = mount(<SignUp createUser={spy}/>,options.get());
+                  wrapper  = mount(<SignUp createUser={spy}/>);
 
             wrapper.find('input').first().getDOMNode().value = email;
             wrapper.find('input').last().getDOMNode().value = password;
@@ -53,11 +51,10 @@ if (Meteor.isClient) {
         });
 
         it('should set createUser callback errors', function() {
-            const options  = new ReactContextOptions(),
-                  email    = 'a@a.a',
+            const email    = 'a@a.a',
                   password = 'password123',
                   spy      = expect.createSpy(),
-                  wrapper  = mount(<SignUp createUser={spy}/>,options.get()),
+                  wrapper  = mount(<SignUp createUser={spy}/>),
                   reason   = 'This is why ist failed';
 
             wrapper.find('input').last().getDOMNode().value = password;
