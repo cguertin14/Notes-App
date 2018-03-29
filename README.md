@@ -1,12 +1,23 @@
-# Notes Application
+# Notes App
 
-Advanced Meteor/React Notes Web application.
+This is a notes application built on Meteor and created for my Udemy course.
 
-### Installation (Commands)
+## Getting Started
 
+This app requires you to have meteor installed on your machine. Then you can clone the repo and run the following:
+
+```
 meteor npm install
+```
+
+```
 meteor
+```
 
-## Authors
+## Running the Tests
 
-Charles Guertin
+Running the tests is easy. All you have to do is run the following command and view the reporter at localhost 3000.
+
+```
+npm test
+```
